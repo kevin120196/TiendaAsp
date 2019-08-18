@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6af50e0bfd274624af958609edb44316" Name="Diagram1">
+        <EntityTypeShape EntityType="TiendaOnlineModel.Categoria" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaOnlineModel.Colores" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaOnlineModel.Guantes" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaOnlineModel.Marca" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaOnlineModel.Modelo" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaOnlineModel.User" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TiendaOnlineModel.FK_Guantes_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaOnlineModel.FK_Guantes_Colores" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaOnlineModel.FK_Guantes_Guantes" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaOnlineModel.FK_Guantes_Marca" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TiendaOnlineModel.Guante_View" Width="1.5" PointX="5.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

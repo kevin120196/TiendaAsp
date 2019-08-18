@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="TiendaOnlineConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TiendaOnlineConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.TiendaOnlineConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Guante_ViewTableAdapter" GeneratorDataComponentClassName="Guante_ViewTableAdapter" Name="Guante_View" UserDataComponentName="Guante_ViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TiendaOnlineConnectionString (Web.config)" DbObjectName="TiendaOnline.dbo.Guante_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Guante_View.*
+FROM            Guante_View</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idGuante" DataSetColumn="idGuante" />
+              <Mapping SourceColumn="ImagenGuante" DataSetColumn="ImagenGuante" />
+              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
+              <Mapping SourceColumn="Talla" DataSetColumn="Talla" />
+              <Mapping SourceColumn="NombreCategoria" DataSetColumn="NombreCategoria" />
+              <Mapping SourceColumn="NombreColores" DataSetColumn="NombreColores" />
+              <Mapping SourceColumn="NombreMarca" DataSetColumn="NombreMarca" />
+              <Mapping SourceColumn="NombreModelo" DataSetColumn="NombreModelo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Guante_View" msprop:Generator_TableClassName="Guante_ViewDataTable" msprop:Generator_TableVarName="tableGuante_View" msprop:Generator_TablePropName="Guante_View" msprop:Generator_RowDeletingName="Guante_ViewRowDeleting" msprop:Generator_RowChangingName="Guante_ViewRowChanging" msprop:Generator_RowEvHandlerName="Guante_ViewRowChangeEventHandler" msprop:Generator_RowDeletedName="Guante_ViewRowDeleted" msprop:Generator_UserTableName="Guante_View" msprop:Generator_RowChangedName="Guante_ViewRowChanged" msprop:Generator_RowEvArgName="Guante_ViewRowChangeEvent" msprop:Generator_RowClassName="Guante_ViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idGuante" msprop:Generator_ColumnVarNameInTable="columnidGuante" msprop:Generator_ColumnPropNameInRow="idGuante" msprop:Generator_ColumnPropNameInTable="idGuanteColumn" msprop:Generator_UserColumnName="idGuante" type="xs:int" />
+              <xs:element name="ImagenGuante" msprop:Generator_ColumnVarNameInTable="columnImagenGuante" msprop:Generator_ColumnPropNameInRow="ImagenGuante" msprop:Generator_ColumnPropNameInTable="ImagenGuanteColumn" msprop:Generator_UserColumnName="ImagenGuante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Talla" msprop:Generator_ColumnVarNameInTable="columnTalla" msprop:Generator_ColumnPropNameInRow="Talla" msprop:Generator_ColumnPropNameInTable="TallaColumn" msprop:Generator_UserColumnName="Talla" type="xs:int" minOccurs="0" />
+              <xs:element name="NombreCategoria" msprop:Generator_ColumnVarNameInTable="columnNombreCategoria" msprop:Generator_ColumnPropNameInRow="NombreCategoria" msprop:Generator_ColumnPropNameInTable="NombreCategoriaColumn" msprop:Generator_UserColumnName="NombreCategoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreColores" msprop:Generator_ColumnVarNameInTable="columnNombreColores" msprop:Generator_ColumnPropNameInRow="NombreColores" msprop:Generator_ColumnPropNameInTable="NombreColoresColumn" msprop:Generator_UserColumnName="NombreColores" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreMarca" msprop:Generator_ColumnVarNameInTable="columnNombreMarca" msprop:Generator_ColumnPropNameInRow="NombreMarca" msprop:Generator_ColumnPropNameInTable="NombreMarcaColumn" msprop:Generator_UserColumnName="NombreMarca" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreModelo" msprop:Generator_ColumnVarNameInTable="columnNombreModelo" msprop:Generator_ColumnPropNameInRow="NombreModelo" msprop:Generator_ColumnPropNameInTable="NombreModeloColumn" msprop:Generator_UserColumnName="NombreModelo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Guante_View" />
+      <xs:field xpath="mstns:idGuante" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,27 @@
+﻿@model MVCWEB.Models.ModeloRequest.modeloRequest
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create", "Modelo", FormMethod.Post, new { role = "form", @class = "form formulario" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Registro de Usuarios</h2>
+    <hr />
+
+    <div class="form-group grupoControl">
+        @Html.ValidationMessage("error", new { @class = "text-danger" })
+        @Html.LabelFor(d => d.NombreModelo)
+        @Html.TextBoxFor(d => d.NombreModelo, new { @class = "form-control form-control-lg" })
+
+    </div>
+
+    <div class="grupoControl">
+        <hr />
+        <button style="width:280px; height:100px;padding:0em" type="submit">Guardar</button>
+        <hr />
+    </div>
+}

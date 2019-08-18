@@ -1,0 +1,438 @@
+﻿.cabecera {
+    background-color: #1e3968;
+    height: 120px;
+    padding: 1em;
+    top: 100px;
+    position: relative;
+}
+
+.formulario {
+    box-shadow: 1px 1px 8px 1px #1e3968;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.grupoControl {
+    margin: 1em 16em 1em 16em;
+
+}
+
+
+.foot {
+    background-color: #1e3968;
+    padding: 2em;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    right: 0em;
+}
+
+.menu {
+    width: 70%;
+    background-color: beige;
+}
+
+.menu1 {
+    margin-top: 7em;
+}
+
+.seccion {
+    height: 150px;
+    background-color: blueviolet;
+    margin: auto;
+}
+
+
+.header {
+    height: auto;
+    background-color: #1e3968;
+    position: absolute;
+    margin: 0em 0em 0em 0em;
+    width: 100%;
+    top: 0em;
+}
+
+
+#imagen {
+    position: absolute;
+    left: 1em;
+    width: 250px;
+    padding: 10px;
+    top: 0em;
+    /*margin-top: -17px;*/
+    /*margin-right: 32em;*/
+}
+
+#imagen1 {
+    position: absolute;
+    right: 52em;
+    width: 250px;
+    padding: 10px;
+    bottom: -3px;
+    /*margin-top: -17px;*/
+    /*margin-right: 32em;*/
+}
+
+ul {
+    list-style-type: none;
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    float: right;
+}
+
+li a {
+    display: inline-flex;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-top: 1em;
+}
+
+.enlace {
+    font-family: cursive;
+    font-style: oblique;
+}
+
+.button, [type="submit"] {
+    width: 100%;
+    background: #1e3968;
+    color: white;
+    border-radius: 10px;
+    padding: 1em 0em 1em 0em;
+}
+
+.enlace:hover {
+    background: white;
+    border: #022664 2px solid;
+    border-radius: 100px;
+    text-decoration: none;
+}
+
+.patrocinadores {
+    margin-top: 2em;
+}
+
+#imagenBuffon {
+    width: 191px;
+    margin: -1em 0em -3em 0em;
+}
+
+@media only screen and (max-width:1366px) {
+    .cabecera {
+        animation-name: cabecera1;
+        animation-duration: 1s;
+        animation-fill-mode: backwards;
+    }
+
+    #imagen1 {
+        visibility: hidden;
+    }
+
+    @keyframes cabecera1 {
+        from {
+            top: 0;
+            background-color: transparent
+        }
+
+        to {
+            top: 100px;
+            background-color: #1e3968
+        }
+    }
+}
+
+@media only screen and (max-width:750px) {
+    .grupoControl {
+        margin: 2em 6em 2em 6em;
+    }
+
+    .cabecera {
+        animation-name: cabecera;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    #imagen {
+        visibility: hidden;
+        width: 200px;
+        right: 345px;
+        top: 1em;
+        margin-right: 0em;
+    }
+
+
+    #imagen1 {
+        visibility: visible;
+        width: 156px;
+        right: 23em;
+        top: 0em;
+        margin-right: 0em;
+    }
+
+    #elementos {
+        margin-right: 1px;
+        margin-left: 13px;
+    }
+
+    .menu, .seccion, .header {
+        width: 100%;
+    }
+
+    .header {
+        animation-name: header;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    .menu1, .seccion {
+        margin-top: 0em;
+    }
+
+    #imagenBuffon {
+        width: 191px;
+        height: auto;
+        float: right;
+        margin: -5em 2em -6em 0em;
+    }
+
+    #imagenHD {
+        margin: 0 1em 0 4em;
+        padding: 0em 4em 0em 4em;
+    }
+
+    .foot {
+        left: 0em
+    }
+
+    @keyframes cabecera {
+        from {
+            top: 100px;
+            background-color: #1e3968
+        }
+
+        to {
+            top: 0;
+            background-color: transparent
+        }
+    }
+
+
+    @keyframes cabecera1 {
+        from {
+            top: 0;
+            background-color: #1e3968
+        }
+
+        to {
+            top: 100px;
+            background-color: transparent
+        }
+    }
+
+    @keyframes header {
+        from {
+            top: 0px;
+            background-color: #1e3968
+        }
+
+        to {
+            top: 0;
+            background-color: #1e3968
+        }
+    }
+}
+
+button {
+    text-decoration: none;
+    position: relative;
+    padding: 25px 50px;
+    color: #fff;
+    font-family: cursive;
+    font-style: oblique;
+    text-transform: capitalize;
+    font-size: 2em;
+    letter-spacing: 1px;
+    overflow: hidden;
+    background: rgba(30, 57, 104, 10);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    border: 2px solid rgba(30, 57, 104, 10);
+}
+
+    button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: rgba(255, 255, 255, .1);
+    }
+
+    button:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+        transition: 0.5s;
+        transition-delay: 0.5s;
+    }
+
+    button:hover:after {
+        left: 100%;
+    }
+
+    button span {
+        position: absolute;
+        display: block;
+        transition: 0.5s ease;
+    }
+
+        button span:nth-child(1) {
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1e3968;
+        }
+
+    button:hover span:nth-child(1) {
+        width: 100%;
+        transform: translateX(100%);
+    }
+
+    button span:nth-child(2) {
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 0;
+        background: #1e3968;
+    }
+
+    button:hover span:nth-child(2) {
+        height: 100%;
+        transform: translateY(100%);
+    }
+
+    button span:nth-child(3) {
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: #1e3968;
+    }
+
+    button:hover span:nth-child(3) {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    button span:nth-child(4) {
+        bottom: 0;
+        right: 0;
+        width: 2px;
+        height: 0;
+        background: #1e3968;
+    }
+
+    button:hover span:nth-child(4) {
+        height: 100%;
+        transform: translateY(-100%);
+    }
+#buttonRed {
+    text-decoration: none;
+    position: relative;
+    padding: 26px 50px;
+    color: #fff;
+    font-family: cursive;
+    font-style: oblique;
+    text-transform: capitalize;
+    font-size: 16px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    background: rgba(99, 3, 3,1);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    height: 50px;
+    border: 2px solid #801313;
+    width:50%;
+    
+}
+
+    #buttonRed:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: rgba(255, 255, 255, .1);
+    }
+
+    #buttonRed:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+        transition: 0.5s;
+        transition-delay: 0.5s;
+    }
+
+    #buttonRed:hover:after {
+        left: 100%;
+    }
+
+#buttonYellow {
+    text-decoration: none;
+    position: relative;
+    padding: 26px 50px;
+    color: #fff;
+    font-family: cursive;
+    font-style: oblique;
+    text-transform: capitalize;
+    font-size: 16px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    background: rgba(180, 167, 24, 1);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    height: 50px;
+    border: 2px solid #b4a718;
+    width: 50%;
+}
+
+#buttonYellow:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, .1);
+}
+
+#buttonYellow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+    #buttonYellow:hover:after {
+        left: 100%;
+    }

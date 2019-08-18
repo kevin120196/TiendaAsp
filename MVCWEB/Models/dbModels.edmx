@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TiendaOnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCategoria" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Colores">
+          <Key>
+            <PropertyRef Name="idColores" />
+          </Key>
+          <Property Name="idColores" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreColores" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Guantes">
+          <Key>
+            <PropertyRef Name="idGuante" />
+          </Key>
+          <Property Name="idGuante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagenGuante" Type="varchar(max)" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Talla" Type="int" />
+          <Property Name="idMarca" Type="int" />
+          <Property Name="idModelo" Type="int" />
+          <Property Name="idCategoria" Type="int" />
+          <Property Name="idColores" Type="int" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="idMarca" />
+          </Key>
+          <Property Name="idMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreMarca" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="idModelo" />
+          </Key>
+          <Property Name="idModelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreModelo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'TiendaOnline.dbo.Guante_View' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Guante_View">
+          <Key>
+            <PropertyRef Name="idGuante" />
+          </Key>
+          <Property Name="idGuante" Type="int" Nullable="false" />
+          <Property Name="ImagenGuante" Type="varchar(max)" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Talla" Type="int" />
+          <Property Name="NombreCategoria" Type="varchar" MaxLength="30" />
+          <Property Name="NombreColores" Type="varchar" MaxLength="30" />
+          <Property Name="NombreMarca" Type="varchar" MaxLength="50" />
+          <Property Name="NombreModelo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Guantes_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guantes_Colores">
+          <End Role="Colores" Type="Self.Colores" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colores">
+              <PropertyRef Name="idColores" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idColores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guantes_Guantes">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="idModelo" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guantes_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="idMarca" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TiendaOnlineModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colores" EntityType="Self.Colores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Guantes" EntityType="Self.Guantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Guante_View" EntityType="Self.Guante_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Guante_View].[idGuante] AS [idGuante], 
+    [Guante_View].[ImagenGuante] AS [ImagenGuante], 
+    [Guante_View].[Descripcion] AS [Descripcion], 
+    [Guante_View].[Talla] AS [Talla], 
+    [Guante_View].[NombreCategoria] AS [NombreCategoria], 
+    [Guante_View].[NombreColores] AS [NombreColores], 
+    [Guante_View].[NombreMarca] AS [NombreMarca], 
+    [Guante_View].[NombreModelo] AS [NombreModelo]
+    FROM [dbo].[Guante_View] AS [Guante_View]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Guantes_Categoria" Association="Self.FK_Guantes_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guantes_Colores" Association="Self.FK_Guantes_Colores">
+            <End Role="Colores" EntitySet="Colores" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guantes_Guantes" Association="Self.FK_Guantes_Guantes">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guantes_Marca" Association="Self.FK_Guantes_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TiendaOnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Guantes" Relationship="Self.FK_Guantes_Categoria" FromRole="Categoria" ToRole="Guantes" />
+        </EntityType>
+        <EntityType Name="Colores">
+          <Key>
+            <PropertyRef Name="idColores" />
+          </Key>
+          <Property Name="idColores" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreColores" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Guantes" Relationship="Self.FK_Guantes_Colores" FromRole="Colores" ToRole="Guantes" />
+        </EntityType>
+        <EntityType Name="Guantes">
+          <Key>
+            <PropertyRef Name="idGuante" />
+          </Key>
+          <Property Name="idGuante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagenGuante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Talla" Type="Int32" />
+          <Property Name="idMarca" Type="Int32" />
+          <Property Name="idModelo" Type="Int32" />
+          <Property Name="idCategoria" Type="Int32" />
+          <Property Name="idColores" Type="Int32" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK_Guantes_Categoria" FromRole="Guantes" ToRole="Categoria" />
+          <NavigationProperty Name="Colores" Relationship="Self.FK_Guantes_Colores" FromRole="Guantes" ToRole="Colores" />
+          <NavigationProperty Name="Modelo" Relationship="Self.FK_Guantes_Guantes" FromRole="Guantes" ToRole="Modelo" />
+          <NavigationProperty Name="Marca" Relationship="Self.FK_Guantes_Marca" FromRole="Guantes" ToRole="Marca" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="idMarca" />
+          </Key>
+          <Property Name="idMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMarca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Guantes" Relationship="Self.FK_Guantes_Marca" FromRole="Marca" ToRole="Guantes" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="idModelo" />
+          </Key>
+          <Property Name="idModelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreModelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Guantes" Relationship="Self.FK_Guantes_Guantes" FromRole="Modelo" ToRole="Guantes" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Guantes_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guantes_Colores">
+          <End Role="Colores" Type="Self.Colores" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colores">
+              <PropertyRef Name="idColores" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idColores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guantes_Guantes">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="idModelo" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idModelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guantes_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
+          <End Role="Guantes" Type="Self.Guantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="idMarca" />
+            </Principal>
+            <Dependent Role="Guantes">
+              <PropertyRef Name="idMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TiendaOnlineEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Colores" EntityType="Self.Colores" />
+          <EntitySet Name="Guantes" EntityType="Self.Guantes" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" />
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Guantes_Categoria" Association="Self.FK_Guantes_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guantes_Colores" Association="Self.FK_Guantes_Colores">
+            <End Role="Colores" EntitySet="Colores" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guantes_Guantes" Association="Self.FK_Guantes_Guantes">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guantes_Marca" Association="Self.FK_Guantes_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Guantes" EntitySet="Guantes" />
+          </AssociationSet>
+          <EntitySet Name="Guante_View" EntityType="TiendaOnlineModel.Guante_View" />
+        </EntityContainer>
+        <EntityType Name="Guante_View">
+          <Key>
+            <PropertyRef Name="idGuante" />
+          </Key>
+          <Property Name="idGuante" Type="Int32" Nullable="false" />
+          <Property Name="ImagenGuante" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Talla" Type="Int32" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NombreColores" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NombreMarca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreModelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TiendaOnlineModelStoreContainer" CdmEntityContainer="TiendaOnlineEntities1">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colores">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.Colores">
+              <MappingFragment StoreEntitySet="Colores">
+                <ScalarProperty Name="idColores" ColumnName="idColores" />
+                <ScalarProperty Name="NombreColores" ColumnName="NombreColores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guantes">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.Guantes">
+              <MappingFragment StoreEntitySet="Guantes">
+                <ScalarProperty Name="idGuante" ColumnName="idGuante" />
+                <ScalarProperty Name="ImagenGuante" ColumnName="ImagenGuante" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+                <ScalarProperty Name="idModelo" ColumnName="idModelo" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idColores" ColumnName="idColores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marca">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+                <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modelo">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.Modelo">
+              <MappingFragment StoreEntitySet="Modelo">
+                <ScalarProperty Name="idModelo" ColumnName="idModelo" />
+                <ScalarProperty Name="NombreModelo" ColumnName="NombreModelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guante_View">
+            <EntityTypeMapping TypeName="TiendaOnlineModel.Guante_View">
+              <MappingFragment StoreEntitySet="Guante_View">
+                <ScalarProperty Name="NombreModelo" ColumnName="NombreModelo" />
+                <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+                <ScalarProperty Name="NombreColores" ColumnName="NombreColores" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="ImagenGuante" ColumnName="ImagenGuante" />
+                <ScalarProperty Name="idGuante" ColumnName="idGuante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

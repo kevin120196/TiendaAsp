@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/stylesTienda.css")
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 patrocinadores">
+                    <img src="~/Resource/img/logo.png" alt="">
+                </div>
+                <div class="col-md-4 patrocinadores">
+                    <img id="imagenBuffon" src="~/Resource/img/logo_white.png" alt="">
+                </div>
+                <div class="col-md-4 patrocinadores">
+                    <img id="imagenHD" src="~/Resource/img/logo-final-1.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-12 cabecera">
+
+
+                <ul id="elementos">
+                    <li><a href="@Url.Content("~/Home")"><img id="imagen" class="img-responsive" src="~/Resource/img/WilsonStorePublicidad.png"></a></li>
+                    <li><a href="@Url.Content("~/Home")"><img id="imagen1" class="img-responsive" src="~/Resource/img/WilsonStoreFBcolor.png"></a></li>
+                    <li>
+                        @Html.ActionLink("Usuarios", "Index", "User", new { area = "" }, new { @class = "enlace" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Marcas", "Index", "Marca", new { area = "" }, new { @class = "enlace" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Categorias", "Index", "Categoria", new { area = "" }, new { @class = "enlace" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Modelos", "Index", "Modelo", new { area = "" }, new { @class = "enlace" })
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Colores", "Index", "Colores", new { area = "" }, new { @class = "enlace" })
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Guantes", "Index", "Guante", new { area = "" }, new { @class = "enlace" })
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        
+    </header>
+
+    <div class="container body-content" style="margin-top:22em">
+        @RenderBody()
+        <hr />
+        <footer class="foot" style="padding:2em">
+            <p><h4 style="font-family:cursive">&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</h4></p>
+            <img id="imagen" class="" src="~/Resource/img/WilsonStorePublicidad.png" style="position:absolute;left:66em;top:-4px;">
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

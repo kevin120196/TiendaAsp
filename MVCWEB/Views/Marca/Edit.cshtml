@@ -1,0 +1,34 @@
+﻿@model MVCWEB.Models.MarcaModel.EditMarca
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit", "Marca", FormMethod.Post, new { role = "form", @class = "formulario" }))
+        {
+            <h2>Edición de Marca</h2>
+            <hr />
+            @Html.HiddenFor(d => d.idMarca)
+            @Html.AntiForgeryToken()
+
+            <div class="form-group grupoControl">
+
+                @Html.ValidationMessage("error", new { @class = "text-danger" })
+                @Html.LabelFor(d => d.NombreMarca)
+                @Html.TextBoxFor(d => d.NombreMarca, new { @class = "form-control" })
+
+            </div>
+
+
+            <div class="form-group grupoControl">
+                <hr />
+                <button style="width:280px; height:100px;padding:0em" type="submit">Actualizar</button>
+                <hr />
+            </div>
+        }
+    </div>
+</div>

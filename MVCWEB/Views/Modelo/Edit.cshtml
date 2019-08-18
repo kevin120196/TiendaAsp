@@ -1,0 +1,33 @@
+﻿@model MVCWEB.Models.ModeloRequest.modeloRequestEdit
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit", "Modelo", FormMethod.Post, new { role = "form", @class = "formulario" }))
+        {
+            <h2>Edición de Modelo</h2>
+            <hr />
+
+            @Html.HiddenFor(d => d.idModelo)
+            @Html.AntiForgeryToken()
+
+            <div class="form-group grupoControl">
+
+                @Html.ValidationMessage("error", new { @class = "text-danger" })
+                @Html.LabelFor(d => d.NombreModelo)
+                @Html.TextBoxFor(d => d.NombreModelo, new { @class = "form-control" })
+
+            </div>
+
+
+            <div class="form-group grupoControl">
+                <hr />
+                <button style="width:280px; height:100px;padding:0em" type="submit">Actualizar</button>
+                <hr />
+            </div>
+        }
+    </div>
+</div>

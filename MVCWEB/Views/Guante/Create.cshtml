@@ -1,0 +1,99 @@
+﻿@model MVCWEB.Models.GuanteModel.guanteRequest
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var ListadoTalla = new List<SelectListItem>() {
+            new SelectListItem()
+            {
+                Text="5",
+                Value="5"
+            },
+
+            new SelectListItem()
+            {
+                Text="6",
+                Value="6"
+            },
+
+            new SelectListItem()
+            {
+                Text="7",
+                Value="7"
+            },
+
+            new SelectListItem()
+            {
+                Text="8",
+                Value="8"
+            },
+
+            new SelectListItem()
+            {
+                Text="9",
+                Value="9"
+            },
+
+            new SelectListItem()
+            {
+                Text="10",
+                Value="10"
+            }
+
+        };
+}
+
+@using (Html.BeginForm("Create", "Guante", FormMethod.Post, new { enctype = "multipart/form-data", role = "form", @class = "formulario" }))
+{
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Gestion de guantes</h2>
+            <hr />
+            <div class="form-group grupoControl">
+                @Html.LabelFor(model => model.ImageFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <span class="btn btn-default btn-file">
+                        @Html.TextBoxFor(model => model.ImageFile, new { type = "file", @class = "form-control-file" })
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group grupoControl">
+                @Html.Label("Descripcion")
+                @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group grupoControl">
+                @Html.Label("Talla")
+                @Html.DropDownList("Talla", ListadoTalla, new { @class = "form-control" })
+            </div>
+            <div class="form-group grupoControl">
+                @Html.DisplayName("Categoria")
+                @Html.DropDownListFor(model => model.idCategoria, new SelectList(Model.CategoriaList, "idCategoria", "nombreCategoria"), "Seleccione", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group grupoControl">
+                @Html.DisplayName("Modelo")
+                @Html.DropDownListFor(model => model.idModelo, new SelectList(Model.ModeloList, "idModelo", "nombreModelo"), "Seleccione", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group grupoControl">
+                @Html.DisplayName("Marca")
+                @Html.DropDownListFor(model => model.idMarca, new SelectList(Model.MarcaList, "idMarca", "nombreMarca"), "Seleccione", new { @class = "form-control" })
+            </div>
+            <div class="form-group grupoControl">
+                @Html.DisplayName("Colores")
+                @Html.DropDownListFor(model => model.idColores,(MultiSelectList) new SelectList(Model.ColoresList, "idColores", "nombreColores"), "Seleccione", new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="grupoControl">
+        <hr />
+        <button style="width:280px; height:100px;padding:0em" type="submit">Guardar</button>
+        <hr />
+    </div>
+}

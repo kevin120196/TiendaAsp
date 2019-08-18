@@ -1,0 +1,53 @@
+﻿@model List<MVCWEB.Models.GuanteModel.guanteModel>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/Etiqueta.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var Guante in Model)
+        {
+            <div class="col-md-4 col-sm-12">
+
+                <div class="card" style="width: 22rem;">
+                    <h5 class="card-header">@Guante.NombreMarca</h5>
+                    <img src="@Url.Content(Guante.imagenGuante)" style="border:1px solid #f7f7f7;" class="img-responsive card-img-top" />
+
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <h4 class="card-title">@Html.DisplayName("Modelo: ")</h4>
+                            <h6 class="card-text">@Guante.NombreModelo</h6>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <h4 class="card-title">@Html.DisplayName("Categoria: ")</h4>
+                            <h6 class="card-text">@Guante.NombreCategoria</h6>
+                        </div>
+                        <hr />
+
+
+                        <div class="form-group">
+                            <h4 class="card-title">@Html.DisplayName("Descripcion: ")</h4>
+                            <p class="card-text"><h6>@Guante.Descripcion</h6></p>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <h4 class="card-title">@Html.DisplayName("Talla: ")</h4>
+                            <span class="badge badge-secondary">@Guante.Talla</span>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <h4 class="card-title">@Html.DisplayName("Color: ")</h4>
+                            <p class="card-text"><span class="badge badge-primary">@Guante.NombreColores</span></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        }
+    </div>
+</div>
